@@ -1,7 +1,6 @@
 .typewriter {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 body {
@@ -15,7 +14,7 @@ body {
     overflow: hidden; /* Ensures the text is not revealed until the animation */
     white-space: nowrap; /* Keeps the text on a single line */
     border-right: 1px solid white; /* Acts as the cursor */
-    animation: typing 3s steps(22) forwards, blink 1s step-end infinite; /* Steps is number of characters and forward keyword ensures the animation retains its final form */
+    animation: typing 3s steps(23) forwards, blink 1s step-end infinite; /* Steps is number of characters and forward keyword ensures the animation retains its final form */
 }
 
 @keyframes typing {
@@ -31,5 +30,57 @@ body {
 @keyframes blink {
     50% {
         border-color: transparent;
+    }
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+.even {
+    opacity: 0; /* Start invisible */
+    overflow: hidden;
+    width: 160px;
+    height: 220px;
+    background-color: aquamarine;
+    border-radius: 16px;
+    animation: slideUp 2s ease-in-out forwards;
+    animation-delay: 2.7s;
+}
+
+.odd {
+    opacity: 0; /* Start invisible */
+    overflow: hidden;
+    width: 160px;
+    height: 220px;
+    background-color: aquamarine;
+    border-radius: 16px;
+    animation: slideDown 2s ease-in-out forwards;
+    animation-delay: 2.7s;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%); /* Start below the viewport */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%); /* Start below the viewport */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
